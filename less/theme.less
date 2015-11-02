@@ -1,5 +1,5 @@
 // ---------------------------------
-// Skate: CSS > Template Theme
+// Couture: CSS > Template Theme
 // ---------------------------------
 
 // 1. #HEADER, PROFILE HEADER & FOOTER
@@ -7,6 +7,7 @@
 // 3. #FORMS
 // 4. #BUTTONS
 // 5. #IMAGES
+// 6. #LINE
 
 
 
@@ -18,121 +19,71 @@
 .template-header,
 .template-footer {
 	.flex-vert-center; // Mixin > Flexbox: Vertical Align Center Mixin
-	min-height: 30px;
-	background-color: @color-swatch4;
+	min-height: 80px;
+    background-color: @color-swatch3;
 	// Tablet: reduce height
 }
 
-.logo-companyname {
+.navigation-bar {
+    background-color: @color-swatch7;
+}
+
+.logo-banner {
     text-align: center;
-    @media @tablet {
-        margin-bottom: 20px;
-    }
 }
 
-.header-textwidget {
-    p, h1, h2, h3, h4 {
-        color: @font-swatch7-color;
-        margin-top: 10px;
-    }
-}
-
-.logo-header.container {
-    padding-top: 40px;
-}
-
-.template-header {
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
-
-.fixed-header {
-    width: 100%;
-    background-color: @color-swatch1;
-    -webkit-transition: min-height 0.6s;
-    -moz-transition: min-height 0.6s;
-    -ms-transition: min-height 0.6s;
-    -o-transition: min-height 0.6s;
-    transition: min-height 0.6s;
-    text-align: center;
-    padding-top: 50px;
-    z-index: 9998;
-    min-height: 28%; 
-}
-
-.fixed-header-wrap {
-    position: relative;
-    z-index: 999;
-}
-
-@media only screen and (min-width:860px) {
-    .fixed-header.shrink {
-        min-height: 14%;
-        position: fixed;
-        z-index: 9998;
-        top: 0;
-        left: 0;
-
-        .container {
-            padding: 10px 0 30px 0;
-        }
-
-        .company-link {
-            font-size: bkscale(@font-swatch10-font-size,.8);
-            line-height:bkscale(@font-swatch10-line-height,.8);
-            -webkit-transition: all 0.6s;
-            -moz-transition: all 0.6s;
-            transition: all 0.6s;
-        }
-
-        .navigation-item .item-name {
-            font-size: bkscale(@font-swatch6-font-size,.8);
-            line-height:bkscale(@font-swatch6-line-height,.8);
-            -webkit-transition: all 0.6s;
-            -moz-transition: all 0.6s;
-            transition: all 0.6s;
-        }
-
-        .companyname {
-            margin: 0;
-        }
-    }
-}
-
-.fixed-header .logo-image {
-    -webkit-transition: all 2s;
-    -moz-transition: all 2s;
-    transition: all 2s;
-    height: auto;
-}
-
-.fixed-header.shrink .logo-image {
-    -webkit-transition: all 2s;
-    -moz-transition: all 2s;
-    transition: all 2;
-    height: 1px;
-    opacity: 0;
+header input.input[type=search]:focus {
+    border: 0!important;
+    border-bottom: 1px solid darken(@color-swatch1,10%)!important;
 }
 
 // Footer
 // ------
 
 .template-footer {
-	text-align: center;
-	color: @font-swatch9-color;
-	// Change heading elements to white
-	h1, h2, h3, h4 {
-		color: @font-swatch7-color;
-	}
-	// Lighten paragraph & link elements
-	p, a {
-		color: @font-swatch7-color;
-		padding: 0;
-	}
-    .container {
-        padding-bottom: 20px;
-        padding-top: 20px;
+    min-height: 60px;
+    background-color: darken(@color-swatch4,5%);
+    text-align: center;
+    color: @font-swatch8-color;
+    padding: 20px;
+    width: 100%;
+    @media @tablet {
+        min-height: 100px;
+        display: block;
+    }
+    // Change heading elements to white
+    h1, h2, h3, h4 {
+        color: @font-swatch8-color;
+    }
+    // Lighten paragraph & link elements
+    p, a {
+        color: @font-swatch8-color;
+    }
+    // Reset Twitter feed styles
+    .twitter-feed {
+        padding: 0;
+        background-color: transparent;
+    }
+    .left {
+        float: left;
+        text-align: left;
+        @media @tablet {
+            margin-bottom: 10px;
+        }
+    }
+    .right {
+        float: right;
+        text-align: right;
+    }
+    .left,
+    .right {
+        display: inline-block;
+        width: 100%;
+        @media @tablet {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
     }
 }
 
@@ -146,7 +97,7 @@
 // Colour Swatches
 // ---------------
 
-// @color-swatch1: Background
+// @color-swatch1: Background 
 // @color-swatch2: Contrast
 // @color-swatch3: Buttons
 // @color-swatch4: Headings
@@ -173,8 +124,8 @@
 // Standard Text Link
 // ------------------
 
-a {
-    color: @color-swatch2;
+a { 
+    color: @color-swatch2; 
 }
 
 
@@ -187,6 +138,46 @@ blockquote:before {
 	color: @color-swatch3;
 }
 
+// Heading's BKscale for Mobile
+// ----------
+
+.logo-banner-left h1,
+.logo-banner-right h1,
+h1 {
+    @media @tablet {
+        font-size: bkscale(@font-swatch1-font-size,0.8);
+        line-height: bkscale(@font-swatch1-line-height,0.9);
+    }
+    @media @mobile {
+        font-size: bkscale(@font-swatch1-font-size,0.8);
+        line-height: bkscale(@font-swatch1-line-height,0.9);
+    }
+}
+
+h2 {
+    @media @mobile {
+        font-size: bkscale(@font-swatch2-font-size,0.8);
+        line-height: bkscale(@font-swatch2-line-height,0.9);
+    }
+}
+
+h3 {
+    @media @mobile {
+        font-size: bkscale(@font-swatch3-font-size,0.8);
+        line-height: bkscale(@font-swatch3-line-height,0.9);
+    }
+}
+
+h4 {
+    @media @tablet {
+        font-size: bkscale(@font-swatch4-font-size,0.8);
+        line-height: bkscale(@font-swatch4-line-height,0.9);
+    }
+    @media @mobile {
+        font-size: bkscale(@font-swatch4-font-size,0.8);
+        line-height: bkscale(@font-swatch4-line-height,0.9);
+    }
+}
 
 
 
@@ -197,60 +188,61 @@ blockquote:before {
 // Form
 // ----------
 
-form, .form {
+form, 
+.form {
     background-color: @color-swatch7;
+    padding: 20px;
     position: relative;
-    border: 1px solid darken(@color-swatch1,10%);
-    width: 100%;
-    margin: 20px auto 0;
-    &:before {
-        content: '\2605';
-        color: @font-swatch4-color;
-        position: absolute;
-        top: -16px;
-        margin-left: -2px;
-        background-color: @color-swatch1;
-        width: 16px;
-        left: 0;
-        right: 0;
-        margin: 0px auto;
-    }
     @media @tablet {
         text-align: center;
     }
     @media @mobile {
-        padding: 0;
+        padding: 20px;
     }
 }
 
 // Form Body
 .form-body {
 	margin: 10px 0 20px;
-    position: relative;
+    position: relative; 
+    z-index: 9999;
 	@media @mobile {
 		margin: 20px;
 	}
 }
 
 // Form Group
-.form-group {
+.form-group { 
 	margin-bottom: 20px;
 	@media @mobile {
 		margin-bottom: 10px;
 	}
 }
 
+// Header Form Group
+.template-header .form-group {
+    float: left;
+    display: inline-block;
+}
+
 
 // Legend
 // ----------
 
-legend {
+legend { 
 	width: 100%;
 	padding: 30px 30px;
 	color: @font-swatch4-color;
 	@media @mobile {
 		padding: 6px 20px;
 	}
+}
+
+// Label
+// ----------
+
+label {
+    margin: 0;
 }
 
 // Select
@@ -270,10 +262,6 @@ select {
 	}
 }
 
-.signupform__legend {
-    display: none;
-}
-
 // Inputs: Text
 // ------------
 
@@ -282,30 +270,61 @@ input[type="email"],
 input[type="password"],
 textarea,
 .input--single-line {
-    border: 0;
+    border: 1px solid @color-swatch1;
     -webkit-appearance: none;
     background-color: @color-swatch1;
     border-radius: 0;
-    border-bottom: 1px solid darken(@color-swatch7,8%);
     &:focus {
+        border: 1px solid @color-swatch3;
         box-shadow: none;
         outline: none;
-        border-bottom: 1px solid darken(@color-swatch1,20%);
     }
 }
 
-.signupform__label,
-.contactform__legend,
+input.input[type=email]:focus, 
+input.input[type=search]:focus, 
+.contact-form__textarea:focus {
+    border: 1px solid @color-swatch3!important;
+}
+
+.template-header input.input[type=search]:focus {
+    border-bottom: 1px solid darken(@color-swatch7,8%)!important;
+}
+
+input.blogsearch__input.input[type=search]:focus {
+    border-bottom: 1px solid @color-swatch3!important;
+}
+
+.signupform__label, 
+.contactform__legend, 
 .blogsearch__legend {
     border-bottom: 0;
     text-align: center;
-    font-size: @font-swatch1-font-size;
-    font-weight: @font-swatch1-font-weight;
+    font-size: @font-swatch3-font-size;
+    font-weight: @font-swatch3-font-weight;
     padding: 30px 0 0;
 }
 
-.signupform__label {
-   padding: 30px 0 10px;
+.blogsearch__legend {
+    padding: 20px 0 0;
+}
+
+.contactform__legend {
+    margin-bottom: 10px;
+    &:after {
+        border-top: 3px solid @color-swatch4;
+        content: "";
+        display: block;
+        position: relative;
+        margin: 15px auto 5px;
+        min-width: 80px;
+        max-width: 200px;
+        width: 16%;
+        transform: skew(-40deg);
+    }
+    @media @tablet {
+        padding: 20px 0 10px;
+    }
 }
 
 .signupform__input {
@@ -332,18 +351,12 @@ textarea,
 // 4. #Buttons
 // -----------------------------
 
-button,
+button, 
 .button,
 .blogpostlist__read-more {
-    padding: 8px 20px;
-    background-color: @color-swatch4;
+    padding: 8px 30px;
+    background-color: @color-swatch3;
     color: @font-swatch7-color;
-    /*.transition (all,0.3s, ease-in-out);
-
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-            transform: scale(1);*/
 }
 
 
@@ -368,4 +381,15 @@ button,
 .image-widget__image-description {
 	color: @font-swatch5-color;
 	text-shadow: none;
+}
+
+
+
+
+// -----------------------------
+// 6. #Line
+// -----------------------------
+
+.line__rule {
+    transform: skew(-60deg);
 }

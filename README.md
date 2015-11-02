@@ -1,4 +1,4 @@
-Memo    
+Couture
 =========
 
-BaseKit Blog Template
+BaseKit eCommerce Template

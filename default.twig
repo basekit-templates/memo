@@ -4,43 +4,29 @@
 
 {% include "includes/header.twig" %}
 
-<div class="fixed-header-wrap">
-    <div class="fixed-header">
-        <div class="logo-header container">
-            <div class="logo-companyname">
-                    <span class="resize-logo">{{widget('logo', 'sitelogo', {"defaultlogo": asset('images/logo.jpg')})|raw}}</span>
-                    {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
-                <div class="header-extendednavigation">
-                    {{widget('extendednavigation', 'extendednavigation', {})|raw}}
-                </div>
-            </div>
-        </div>
-        <div class="header-line">
-        </div>
-    </div>
-</div>
-
 <div class="bk-pt-default">
 
-	<!-- Container -->
-	<div class="container">
+    <div class="profile-header">
+        {{widget('extendednavigation', 'extendednavigation', { 'align': 'right'})|raw}}
+    </div>
 
-		<!-- Page Content -->
-		<section class="template-content">
+    <div class="template-title-wrap">
+        <div class="template-title">
+            <h1 style="padding-bottom: 0;">
+                <span>{{ page.title }}</span>
+            </h1>
+        </div>
+    </div>
+    	
+    <!-- Page Content -->
+    <section class="template-content container">
 
-			<!-- Template Widgets -->
+    	<!-- Main Widet Zone -->
+       	{{zone('main')|raw}}
 
-			<!-- End Template Widgets -->
-
-			<!-- Main Widet Zone -->
-		   	{{zone('main')|raw}}
-
-		</section>
-		<!-- End Page Content -->
-
-	</div>
-	<!-- End Container -->
-
+    </section>
+    <!-- End Page Content -->
+    
 </div>
 <!-- End bk-pt-default -->
 

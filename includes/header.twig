@@ -1,14 +1,29 @@
 <!-- Header -->
 <header class="template-header">
-    <div class="header-wrapper">
-        <div class="headercontent-wrapper">
-            <div class="header-textwidget">
-                {{widget('content', 'widgetcontentleft', {content: '<p>Lorem ipsum dolor sit amet</p>'})|raw}}
+    <div class="header-wrapper container">
+            {% if plugins.ecommerce.store.live %}
+            <div class="header-search">
+                <div class="flex-item flex-product-search">
+                    <form class="form  ecomproductslist__form js-productlist-display-form" method="GET" action="/store">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <input class="input js-display-control" id="page-zones__main-   widgets__ecomproductslistWidget__ecomproductslist__search" name="productlist-search"   placeholder="Search Products..." type="search" value="">
+                            </div>
+                            <div class="form-group">
+                                <button class="button  button--submit  ecomproductslist__button" type="submit">Search   </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="header-basket">
-            {{widget('ecombasket', 'shopbasket', {})|raw}}
+            {% endif %}
+            <div class="header-companyname">
+                {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'),"showTplWidget":"0"})|raw}}
+                {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+            </div>
+            <div class="header-basket">
+                {{widget('profile', 'headerprofilesocialicons', { 'profileType':'socialicons', 'socialicons':'profile'})|raw}}
+            </div>
         </div>
     </div>
 </header>
-<!-- End Header -->

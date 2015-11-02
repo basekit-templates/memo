@@ -1,12 +1,50 @@
 // -----------------------------
-// Skate: CSS > Navigation
+// Couture: CSS > Navigation
 // -----------------------------
+
+/* Effect 15: scale down, reveal */
+.extendednavigation__item-name {
+    color: @font-swatch6-color;
+    font-weight: 700;
+    text-shadow: none;
+    text-rendering: optimizelegibility;
+    transition: .2s;
+}
+
+.extendednavigation__item-name::before {
+    color: @font-swatch6-color;
+}
 
 // Navigation Bar
 // --------------
 
+.widget__extendednavigation {
+    background-color: @color-swatch7;
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    width: 100%;
+}
+
 .navigation-bar {
-	background-color: @color-swatch2;
+	background-color: @color-swatch7;
+    border-bottom: 1px solid darken(@color-swatch1,6%);
+    .container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.extendednavigation__navigation-body {
+    border-top: 1px solid darken(@color-swatch7,1%);
+}
+
+.bk-pt-default .extendednavigation__navigation-body {
+    border-bottom: 1px solid #f3ece5;
+}
+
+.navigation-item.folder.open .navigation-list {
+    top: 53px;
 }
 
 
@@ -28,6 +66,7 @@
 // ---------------
 
 .navigation-item {
+    position: static;
 	@media @tablet {
 		width: 100%;
 	}
@@ -36,10 +75,15 @@
 
 // Navigation Link
 .navigation-item .item-name {
-	padding: 5px 15px;
+	padding: 8px 15px;
+    text-align: center;
     &:hover {
-        color: @font-swatch6-color;
-        text-decoration: underline;
+        -webkit-backface-visibility: hidden;
+        background-color: @color-swatch7;
+        color: @font-swatch4-color!important;
+    }
+    @media @tablet {
+        border-bottom: 0;
     }
 }
 
@@ -48,29 +92,72 @@
 }
 
 // Selected Class
-.extendednavigation li.selected > a  {
-    text-decoration: underline;
-    color: @font-swatch6-color;
+.extendednavigation .navigation-item.selected > .item-name {
+    background-color: @color-swatch7;
+    color: @font-swatch4-color!important;
 }
 
-.navigation-item.folder .navigation-item--child a {
-    color: @font-swatch4-color;
-}
-
-.extendednavigation__navigation-item.folder.selected span {
-    color: @font-swatch6-color;
-    text-decoration: underline;
-}
-
-.extendednavigation__navigation-item.folder.selected .selected {
-    color: @font-swatch6-color;
-    text-decoration: underline;
-}
 
 // Dropdown Menu
 // -------------
 .navigation-item.folder {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    &.open .navigation-list {
+        background-color: @color-swatch3;
+        border: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: absolute;
+        opacity: 0;
+        transition: all, 0.5s, ease-in-out;
+        @media @tablet {
+            display: block;
+            position: relative;
+        }
+    }
+
+    &.open .navigation-list {
+        opacity: 1;
+    }
+
+    &:hover .navigation-list {
+        opacity: 1;
+    }
+
+    .navigation-item {
+        background-color: transparent;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+        min-width: 10%;
+        flex-grow: 0;
+        text-align: center;
+    }
+
+    span.item-name {
+        color: @font-swatch6-color;
+    }
+
+    span.item-name:after {
+        border-top-color: @font-swatch6-color;
+    }
+
+    .item-name {
+        color: @font-swatch7-color;
+    }
+}
+
+.navigation-item:not(.open):hover .navigation-list--children {
+    display: none;
 }
 
 .navigation-item.folder .navigation__item-name {
@@ -108,14 +195,13 @@
 
 .navigation-list--children, .default-page .navigation-list--children {
 	background-color:@color-swatch1;
-	border: 1px solid darken(@color-swatch1,10%);
+	border: 1px solid @color-swatch7;
     z-index: 99999;
 	.navigation__item-name {
 		color:@font-swatch9-color;
 	}
 	@media @tablet {
 		position: relative;
-		top: 0;
 		.navigation-item:hover & {
 			display: none;
 		}
@@ -124,7 +210,6 @@
 		}
 	}
 }
-
 
 // Burger Icon
 // -------------
@@ -137,17 +222,15 @@
     .navigation-toggle {
         display: block;
         overflow: hidden;
-        width: 50px;
+        width: 100%;
         height: 45px;
-        text-indent: 1000px;
+        text-indent: 3000px;
         line-height: 0;
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
         outline: 0;
         border: 0;
-        margin: 0px auto;
-        margin-bottom: 20px;
         &:before {
             content: '';
             position: absolute;
@@ -232,14 +315,4 @@
         width: 100%;
     }
 }
-
-.extendednavigation li.selected > a  {
-    text-decoration: underline;
-    color: @font-swatch6-color;
-}
-
-.navigation-item.folder .navigation-item--child a {
-    color: @font-swatch4-color;
-}
-
 

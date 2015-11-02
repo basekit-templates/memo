@@ -1,9 +1,10 @@
 <!-- Footer -->
-<footer class="template-footer">
-
-	<div class="container">
-        {{widget('profile', 'headerprofilesocialicons', { 'profileType':'socialicons', 'socialicons':'profile'})|raw}}
-	</div>
-
+<footer class="template-footer clearfix">
+    <div class="left">
+        <h4>{{widget('content', 'footer2content', {content: 'COUTURE', lines: 'all'})|raw}}</h4>
+    </div>
+    <div class="right">
+        {{widget('profile', 'footerprofilecopyright', { 'profileType':'copyright', 'copyright':'profile'})|raw}}
+       </div>
 </footer>
 <!-- End Footer -->
